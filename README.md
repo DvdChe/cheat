@@ -1,7 +1,7 @@
 # cheat
 
 Because searching your reminder in an external app is so boring, I made a little script to retrieve my reminders easily. 
-The reminders are written in markdown and are parsed by a python script (see dependancies).
+The reminders are written in markdown and are parsed by a python script (see requirements).
 
 E/G :
 ```bash
