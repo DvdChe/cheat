@@ -10,7 +10,7 @@ cheat mysql
 ```
 
 ## Disclaimer
-The cheat sheet are made for myself, and they will not surely fit. It's up to you to make it as you want :)
+The cheat sheet are made for myself, and they will not surely fit for in your needs. It's up to you to make it as you want :)
 
 ## Installation :
 
