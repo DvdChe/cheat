@@ -1,0 +1,75 @@
+# Mysql Cheat :
+
+
+## ----------Tunning Mysql--------------
+## Get Buffer size
+```mysql
+SELECT @@innodb_buffer_pool_size/1024/1024/1024;
+```
+## Set Buffer size : 
+```bash
+mysqld --innodb_buffer_pool_size=9G --innodb_buffer_pool_instances=16
+```
+##Show Running queries :
+```mysql
+mysql> show processlist;
+```
+
+##Check locked tables :
+```mysql
+mysql> show open tables where in_use >0;
+```
+
+##Check max_connection_error  :
+```mysql
+mysql> select @@global.max_connect_errors;
+mysql> show variables like "max_connections";
+mysql> show global status like '%max_connection%';
+mysql> flush status;
+```
+
+
+
+## -----------User management----------
+## New User :
+```mysql
+CREATE USER '<user>'@'<host>' IDENTIFIED BY '<password>';
+GRANT ALL PRIVILEGES ON <database> .<table> TO '<user>'@'<host>';
+```
+
+##Show grants for user :
+```mysql
+mysql> show grants for '<user>'@'<host>';
+```
+
+## -----------Logs management --------
+##Show binary logs :
+```mysql
+mysql> show binary logs;
+```
+
+##Purge binary logs :
+```mysql
+mysql> purge binary logs to 'mysql-bin.xxxxxx';
+```
+
+## -----------Slave management ----------
+##Show Slave Status :
+```mysql
+mysql> show slave status \G
+```
+
+##Restore slave server:
+```mysql
+1 : Dump Master
+2 : Stop slave
+3 : Reset slave (?)
+4 : Drop slave
+5 : Import from dump
+6 : Start slave status
+```
+
+
+
+Max connection = apache max client x 2
+

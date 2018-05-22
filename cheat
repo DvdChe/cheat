@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -f $(dirname "$(readlink -f "$0")")/cheat_md/"$1".md ]; then
+    mdv $(dirname "$(readlink -f "$0")")/cheat_md/"$1".md
+fi
+
+echo "-------------"
+
