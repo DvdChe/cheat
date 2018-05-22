@@ -1,5 +1,6 @@
 # cheat
 
+
 Because searching your reminder in an external app is so boring, I made a little script to retrieve my reminders easily. 
 The reminders are written in markdown and are parsed by a python script (see requirements).
 
@@ -7,6 +8,9 @@ E/G :
 ```bash
 cheat mysql
 ```
+
+## Disclaimer
+The cheat sheet are made for myself, and they will not surely fit. It's up to you to make it as you want :)
 
 ## Installation :
 
@@ -44,3 +48,4 @@ and that's it :
 ```bash
 cheat new_cheat_sheet
 ```
+
