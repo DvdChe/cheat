@@ -9,6 +9,11 @@ php -r "require 'app/Mage.php'; echo Mage::getVersion(); "
 
 ```
 
+## Conf location : 
+```
+<DocumentRoot>/app/etc/
+```
+
 ## Logs :
 
  - var/log.system.log
