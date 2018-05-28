@@ -2,7 +2,10 @@
 
 if [ -f $(dirname "$(readlink -f "$0")")/cheat_md/"$1".md ]; then
     mdv $(dirname "$(readlink -f "$0")")/cheat_md/"$1".md
+else 
+    if [ -f $(dirname "$(readlink -f "$0")")/cheat_md/private/"$1".md ]; then
+        mdv $(dirname "$(readlink -f "$0")")/cheat_md/private/"$1".md
+    fi
 fi
-
 echo "-------------"
 
