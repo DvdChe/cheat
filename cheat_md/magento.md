@@ -16,7 +16,7 @@ php -r "require 'app/Mage.php'; echo Mage::getVersion(); "
 
 ## Logs :
 
- - var/log.system.log
+ - var/log/system.log
  - var/log/exception.log
  - var/report
 
