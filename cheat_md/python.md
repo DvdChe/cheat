@@ -3,13 +3,15 @@
 ## Venv :
 
 ### Create Virtual Env
-```python=
-python -m venv /path/to/project/env_name_of_project
-python3 -m venv /path/to/project/env_name_of_project
+```
+# Python3 :
+python3 -m virtualenv --no-site-packages /location/of/env
+# Default Python used by system : 
+python -m virtualenv --no-site-packages /location/of/env
 ```
 
 ### Go to env : 
-```python=
-virtualenv /path/to/project/env_name_of_project
+```
+source /path/to/project/env_name_of_project/bin/activate
 ```
 
