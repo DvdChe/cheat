@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo $#
-echo $1
-
 if [[ $# -eq 1 ]]; then
     if [[ -f $(dirname "$(readlink -f "$0")")/cheat_md/"$1".md ]]; then
         mdv $(dirname "$(readlink -f "$0")")/cheat_md/"$1".md
