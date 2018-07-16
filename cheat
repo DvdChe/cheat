@@ -1,12 +1,19 @@
-#!/bin/bash
+#!/usr/bin/zsh
 
-if [[ $# -eq 1 ]]; then
-    if [[ -f $(dirname "$(readlink -f "$0")")/cheat_md/"$1".md ]]; then
-        mdv $(dirname "$(readlink -f "$0")")/cheat_md/"$1".md
-    fi
+cheat_dir=$(dirname "$(readlink -f "$0")")/cheat_md/
+
+#If there is args 
+if [[ $# -eq 1 ]]; then 
+	#if Cheat exists :
+    if [[ -f $cheat_dir/"$1".md ]]; then
+        mdv $cheat_dir/"$1".md
+    else
+	#If not, lets curl in cheat.sh
+    	curl cheat.sh/$1
+	fi
 else
     echo "# Here is the cheats available :" |  mdv -
-    ls -c $(dirname "$(readlink -f "$0")")/cheat_md | sed 's/\.md//g'
+    ls -c $cheat_dir/ | sed 's/\.md//g'
 fi    
 echo "-------------"
 
