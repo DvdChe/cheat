@@ -9,6 +9,21 @@ E/G :
 cheat mysql
 ```
 
+## New Feature : cheat.sh
+
+If you have no markdown but you want a cheat anyway, the script will automatically check on cheat.sh
+
+You can also bypass your local markdown with **-b** or **--bypass** option :
+
+```
+  #If mysql.md exists, it will display its content :
+  cheat mysql 
+
+  #To bypass your local markdown and check directly on cheat.sh, just add the -b or --b option :
+  cheat -b mysql
+
+```
+
 ## Disclaimer
 The cheat sheet are made for myself, and they will not surely fit for in your needs. It's up to you to make it as you want :)
 
