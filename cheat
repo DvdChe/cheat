@@ -1,19 +1,39 @@
 #!/usr/bin/zsh
 
+BYPASS=0
 cheat_dir=$(dirname "$(readlink -f "$0")")/cheat_md/
 
-#If there is args 
-if [[ $# -eq 1 ]]; then 
-	#if Cheat exists :
-    if [[ -f $cheat_dir/"$1".md ]]; then
-        mdv $cheat_dir/"$1".md
-    else
-	#If not, lets curl in cheat.sh
-    	curl cheat.sh/$1
-	fi
-else
+
+#Parse options :
+OPTS=$( getopt -o b -l bypass -- "$@" )
+if [ $? != 0 ]; then exit 1; fi
+eval set -- "$OPTS"
+while true ; do
+	case "$1" in
+		-b | --bypass)
+			BYPASS=1
+			shift 1 ;;
+		--)
+			shift;
+			break;;
+	esac
+done
+
+subject=$1
+
+if [[ $# -eq 0 ]]; then
+
     echo "# Here is the cheats available :" |  mdv -
     ls -c $cheat_dir/ | sed 's/\.md//g'
-fi    
-echo "-------------"
+	exit 0
+fi
+
+
+#if Cheat exists and bypass is unwanted :
+if [[ -f $cheat_dir/"$subject".md && $BYPASS -eq 0 ]] ; then
+    mdv $cheat_dir/"$subject".md
+else
+#If not, lets curl in cheat.sh
+	curl cheat.sh/$subject
+fi
 
