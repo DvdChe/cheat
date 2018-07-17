@@ -3,10 +3,6 @@
 BYPASS=0
 cheat_dir=$(dirname "$(readlink -f "$0")")/cheat_md/
 
-bold=$(tput bold)
-normal=$(tput sgr0)
-red=$(tput setaf 1)
-
 
 #Parse options :
 OPTS=$( getopt -o b -l bypass -- "$@" )
@@ -30,6 +26,8 @@ if [[ $# -eq 0 ]]; then
     echo "# Here is the cheats available :" |  mdv -
     ls -c $cheat_dir/ | sed 's/\.md//g'
 
+	echo "*Tip :* You can also get cheat sheet on cheat.sh by bypassing markdown with *-b* or *--bypass* option."
+
 else
 
 	#if Cheat exists and bypass is unwanted :
@@ -42,5 +40,4 @@ else
 
 fi
 
-echo -e "\n ${bold}Tip :${normal} You can also get cheat sheet on cheat.sh by bypassing markdown with ${bold} -b ${normal} or ${bold}--bypass ${normal} option \n"
 
