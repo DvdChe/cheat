@@ -19,7 +19,7 @@ You can also bypass your local markdown with **-b** or **--bypass** option :
   #If mysql.md exists, it will display its content :
   cheat mysql 
 
-  #To bypass your local markdown and check directly on cheat.sh, just add the -b or --b option :
+  #To bypass your local markdown and check directly on cheat.sh, just add the -b or --bypass option :
   cheat -b mysql
 
 ```
