@@ -75,17 +75,24 @@ mysql> show slave status \G
 
 ## tmp table
 
-```
+```mysql
+
 #Get vars about tmp 
 mysql>show global status like '%tmp%';
 
+Created_tmp_disk_tables : The number of internal on-disk temporary tables
+Created_tmp_files       : How many temporary files mysqld has created. 
+Created_tmp_tables      : The number of internal temporary tables created 
+
 ```
 
-Created_tmp_disk_tables : The number of internal on-disk temporary tables
+Get top 3 of queries which has the biggest ammount of io on disk :
 
-Created_tmp_files       : How many temporary files mysqld has created. 
+```mysql
 
-Created_tmp_tables      : The number of internal temporary tables created 
+SELECT * FROM performance_schema.events_statements_summary_by_digest ORDER BY SUM_CREATED_TMP_DISK_TABLES DESC LIMIT 3\G
+```
+
 
 Max connection = apache max client x 2
 
