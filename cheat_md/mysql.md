@@ -27,6 +27,10 @@ mysql> show variables like "max_connections";
 mysql> show global status like '%max_connection%';
 mysql> flush status;
 ```
+## Get mysql activity in real time :
+```
+mysqladmin ext -ri <time in seconds>
+```
 
 
 
@@ -69,7 +73,19 @@ mysql> show slave status \G
 6 : Start slave status
 ```
 
+## tmp table
 
+```
+#Get vars about tmp 
+mysql>show global status like '%tmp%';
+
+```
+
+Created_tmp_disk_tables : The number of internal on-disk temporary tables
+
+Created_tmp_files       : How many temporary files mysqld has created. 
+
+Created_tmp_tables      : The number of internal temporary tables created 
 
 Max connection = apache max client x 2
 
