@@ -32,8 +32,6 @@ mysql> flush status;
 mysqladmin ext -ri <time in seconds>
 ```
 
-
-
 ## -----------User management----------
 ## New User :
 ```mysql
@@ -95,4 +93,18 @@ SELECT * FROM performance_schema.events_statements_summary_by_digest ORDER BY SU
 
 
 Max connection = apache max client x 2
+
+## -----------MISC----------
+
+## Dump for retablish slave replication :
+
+### A-Plan :
+
+Use Xtra-Backup
+
+### B-Plan (Can cause production issue )
+
+```mysql
+mysqldump --defaults-file=/etc/mysql/${CLIENT}/root.cnf --events --single-transaction --master-data --opt --all-databases | xz -1 > /data/mysql/DB-$(date "+%Y-%m-%d")-${CLIENT}_all-db.sql.xz
+```
 
