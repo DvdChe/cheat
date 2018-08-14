@@ -1,7 +1,7 @@
 # Mysql Cheat :
 
 
-## ----------Tunning Mysql--------------
+# ----------Tunning Mysql--------------
 ## Get Buffer size
 ```mysql
 SELECT @@innodb_buffer_pool_size/1024/1024/1024;
@@ -32,7 +32,9 @@ mysql> flush status;
 mysqladmin ext -ri <time in seconds>
 ```
 
-## -----------User management----------
+Max connection = apache max client x 2
+
+# -----------User management----------
 ## New User :
 ```mysql
 CREATE USER '<user>'@'<host>' IDENTIFIED BY '<password>';
@@ -44,7 +46,7 @@ GRANT ALL PRIVILEGES ON <database> .<table> TO '<user>'@'<host>';
 mysql> show grants for '<user>'@'<host>';
 ```
 
-## -----------Logs management --------
+# -----------Logs management --------
 ##Show binary logs :
 ```mysql
 mysql> show binary logs;
@@ -55,11 +57,21 @@ mysql> show binary logs;
 mysql> purge binary logs to 'mysql-bin.xxxxxx';
 ```
 
-## -----------Slave management ----------
+# -----------Slave management ----------
 ##Show Slave Status :
 ```mysql
 mysql> show slave status \G
 ```
+
+## Troubleshouting slave errors :
+
+### Stop and start slave :
+
+```
+stop slave; SET GLOBAL sql_slave_skip_counter =1; start slave;
+```
+
+If it does not fix use Xtra-Backup
 
 ##Restore slave server:
 ```mysql
@@ -91,20 +103,4 @@ Get top 3 of queries which has the biggest ammount of io on disk :
 SELECT * FROM performance_schema.events_statements_summary_by_digest ORDER BY SUM_CREATED_TMP_DISK_TABLES DESC LIMIT 3\G
 ```
 
-
-Max connection = apache max client x 2
-
-## -----------MISC----------
-
-## Dump for retablish slave replication :
-
-### A-Plan :
-
-Use Xtra-Backup
-
-### B-Plan (Can cause production issue )
-
-```mysql
-mysqldump --defaults-file=/etc/mysql/${CLIENT}/root.cnf --events --single-transaction --master-data --opt --all-databases | xz -1 > /data/mysql/DB-$(date "+%Y-%m-%d")-${CLIENT}_all-db.sql.xz
-```
 
