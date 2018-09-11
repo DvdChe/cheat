@@ -2,7 +2,7 @@
 
 Few test tricks very helpful : 
 
-## salt usual commands
+## Salt usual commands
 
 ```
    # List of states related to a module :
