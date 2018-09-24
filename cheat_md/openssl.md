@@ -25,3 +25,8 @@ openssl s_client -showcerts -(ssl2|ssl3|tls1|dtls1) -connect <www.domain.com_or_
 ```bash
 openssl s_client -connect www.xxx:443 -showcerts -servername xxx.com -debug | grep error
 ```
+
+## Check cert and key :
+```
+(openssl rsa -noout -modulus -in private.key | openssl md5 ; openssl x509 -noout -modulus -in certificate.crt | openssl md5) | uniq
+```
