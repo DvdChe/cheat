@@ -33,7 +33,6 @@ salt-call -d grains
 
 ```
    salt -L 'comp1,conp2,comp3' grains.item kernelrelease
-
    salt -G 'acme_client:<clientid>' ...
    salt -C 'G@nbs_client:mnf and nbs'
 ```

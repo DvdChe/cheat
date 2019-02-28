@@ -30,3 +30,8 @@ openssl s_client -connect www.xxx:443 -showcerts -servername xxx.com -debug | gr
 ```
 (openssl rsa -noout -modulus -in private.key | openssl md5 ; openssl x509 -noout -modulus -in certificate.crt | openssl md5) | uniq
 ```
+
+## Inspect cert
+```
+   openssl x509 -in certificate.crt -text -noout
+```
