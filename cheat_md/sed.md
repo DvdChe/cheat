@@ -18,3 +18,9 @@ sed '/pattern/ r insert.txt' file.txt
 ```
 vars such ~ does not works !!
 
+## Print block starting with a parttern and finishing with another :
+
+```bash
+sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' 
+```
+e/g : in order to get TLS certificate 

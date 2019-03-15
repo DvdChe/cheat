@@ -35,3 +35,8 @@ openssl s_client -connect www.xxx:443 -showcerts -servername xxx.com -debug | gr
 ```
    openssl x509 -in certificate.crt -text -noout
 ```
+
+## Get public remote cert :
+```bash 
+openssl s_client -connect google.com:443 –servername google.com:443 < NUL | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > public.crt
+```
