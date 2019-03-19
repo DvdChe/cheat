@@ -44,4 +44,8 @@ salt-call -d grains
 
 ```
 
+### Get IP of minion
 
+```bash
+sudo salt '<minion>' network.interface_ip <interface>
+```
