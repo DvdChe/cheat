@@ -61,6 +61,13 @@ Extract:
     tar vxzf "$F".tgz
     tar vxjf "$F".tbz
 
+List content :
+
+    tar vxf "$F".tar
+    tar vxzf "$F".tgz
+    tar vxjf "$F".tbz
+
+
 ## Keep hardlinks
 
 Does not work if the file has any hard links, probably because that would not reduce memory usage as it breaks the hardlink. AKA: tries to be too smart and annoys us to hell!
