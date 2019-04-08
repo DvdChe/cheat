@@ -34,7 +34,7 @@ salt-call -d grains
 ```
    salt -L 'comp1,conp2,comp3' grains.item kernelrelease
    salt -G 'acme_client:<clientid>' ...
-   salt -C 'G@nbs_client:mnf and nbs'
+   salt -C 'G@grain_name:value and grain_name2:value2'
 ```
 
 ## Dry run :
@@ -48,4 +48,11 @@ salt-call -d grains
 
 ```bash
 sudo salt '<minion>' network.interface_ip <interface>
+```
+
+### Quick memento :
+```
+   salt <minions> cmd.run "command to run"
+   salt <minions> system.reboot
+   salt <minions> cmd.script
 ```
