@@ -9,5 +9,5 @@ pacman -Qo
 
 dpkg -l 
 # <=>
-pacman -Ql
+pacman -Qqei <packagename>
 ```
