@@ -12,3 +12,12 @@ kubectl get all -n <namespace>
 Get info of pod
 kubectl describe <podname> -n namespace
 ```
+
+```
+ # Show namespaces
+kubens
+ 
+ # Show clusters
+kubectx 
+```
+
