@@ -1,23 +1,27 @@
 # Kubectl
 
-
+## List namespaces :
 ```bash
-
-# List namespaces :
 kubectl get ns
+```
 
-# List all pod within a namespace :
+## List all pod within a namespace :
+```bash
 kubectl get all -n <namespace>
-
-Get info of pod
+```
+## Get info of pod
+```bash 
 kubectl describe <podname> -n namespace
 ```
-
-```
- # Show namespaces
+## Show namespaces
+```bash
 kubens
- 
- # Show clusters
+```
+## Show clusters
+```bash
 kubectx 
 ```
-
+## start proxy :
+```
+kubectl proxy
+```
