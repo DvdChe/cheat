@@ -48,5 +48,10 @@
 
   ctrl+a : goto first number in current line and increment
   creating list number : ```:put range(int start, int stop)``` 
-  
 
+
+## Save to clipboard
+
+```
+ :w !xclip -selection clipboard 
+```
