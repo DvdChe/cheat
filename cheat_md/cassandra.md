@@ -1,0 +1,5 @@
+# Cassandra tricks
+
+```
+  nodetool status
+```
