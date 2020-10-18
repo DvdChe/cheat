@@ -27,4 +27,9 @@
    curl -XPOST 'localhost:9200/_flush/synced?pretty'
 ```
 
+# Shard allocation 
+```
+  <cluster>:9200/ _cluster/allocation/explain
+```
+
 

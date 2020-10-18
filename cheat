@@ -1,7 +1,6 @@
-#!/usr/bin/zsh
-
+#!/usr/bin/env bash
 BYPASS=0
-cheat_dir=$(dirname "$(readlink -f "$0")")/cheat_md/
+cheat_dir=$(dirname "$(readlink -f "$0")")/cheat_md
 
 
 #Parse options :
@@ -23,19 +22,19 @@ subject=$1
 
 if [[ $# -eq 0 ]]; then
 
-    echo "# Here is the cheats available :" |  mdv -
-    ls -c $cheat_dir/ | sed 's/\.md//g'
+    echo "# Here is the cheats available :" |  glow -
+    find  "$cheat_dir" -type f -name "*.md" 
 
 	echo "*Tip :* You can also get cheat sheet on cheat.sh by bypassing markdown with *-b* or *--bypass* option."
 
 else
 
 	#if Cheat exists and bypass is unwanted :
-	if [[ -f $cheat_dir/"$subject".md && $BYPASS -eq 0 ]] ; then
-	    mdv $cheat_dir/"$subject".md
+	if [[ -f "$cheat_dir"/"$subject".md && $BYPASS -eq 0 ]] ; then
+	    glow "$cheat_dir"/"$subject".md
 	else
 	#If not, lets curl in cheat.sh
-		curl cheat.sh/$subject
+		curl cheat.sh/"$subject"
 	fi
 
 fi
