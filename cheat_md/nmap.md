@@ -10,5 +10,14 @@
 
   # scanning from list file of host and out to xml
   nmap -iL hostlist.txt -p 443 -oX out.xml
+  
+  # Intense scan
+  nmap -T4 -A -v 
+
+  # Intense scan plus UDP
+  nmap -sS -sU -T4 -A -v
+
+  # Intense scan All ports !! - verry slow 
+  nmap -p 1-65535 -T4 -A -v 
 
 ```

@@ -24,9 +24,19 @@
 ```
 
 # Renaming branch :
-```
+```bash
 git checkout <old_name>
 git branch -m <new_name>
 git push origin --delete <old_name>
 git push origin -u <new_name>
+```
+
+# Removing all untracked files and folders : 
+
+```bash
+   # See what's gonna happens :
+   git clean -nxd
+
+   # Removing untracked files ( beware !! ): 
+   git clean -fxd
 ```
