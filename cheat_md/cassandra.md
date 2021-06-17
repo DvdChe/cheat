@@ -32,6 +32,6 @@ Nodetool is the cli tool to interact with the cluster and node
 
 - Most of times you must use `NetworkTopologyStrategy` :
   https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/architecture/archDataDistributeReplication.html
-- Replica factor value will set the number of occurrences of records ( not like Elasticsearch )
+- Replica factor value will set the number of occurrences of records ( unlike Elasticsearch )
 - Modifying replica factor will require to run `nodetool repair -pr <keyspace_name>`
 
