@@ -3,9 +3,9 @@
 ## Meta commands :
 
 ```
-   show databases: \l
-   use database: \c database
-   show tables: \dt
+   show databases:  \l
+   use database:    \c database
+   show tables:     \dt
    show privileges: \du
 ```
 
