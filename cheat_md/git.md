@@ -40,3 +40,9 @@ git push origin -u <new_name>
    # Removing untracked files ( beware !! ): 
    git clean -fxd
 ```
+
+# Prune branches
+
+```
+   git remote prune origin [ --dry-run ]
+```
