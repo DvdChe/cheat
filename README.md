@@ -32,16 +32,12 @@ The cheat sheet are made for myself, and they will not surely fit for in your ne
 ## Installation :
 
 ### Requirement :
-You need to install the mdv command via pip :
+You need to install the (https://github.com/charmbracelet/glow)[Glow] cli tool. Refer to the readme : https://github.com/charmbracelet/glow#installation
+
+Make sure glow is in your PATH var :
 
 ```bash
-pip install --user mdv
-```
-
-Make sure mdv is in your PATH var :
-
-```bash
-which mdv
+which glow
 ```
 
 Add cheat command in your path var too :
