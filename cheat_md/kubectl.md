@@ -30,3 +30,8 @@ kubectl proxy
 ```
 kubectl run -i --tty busybox --image=busybox --restart=Never -- sh
 ```
+
+## Generate yaml file without applying the command ( dry run uno )
+```
+kubectl create deployment --image peepoodo test -o yaml --dry-run=client
+```
