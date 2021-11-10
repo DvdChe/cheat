@@ -46,3 +46,11 @@ git push origin -u <new_name>
 ```
    git remote prune origin [ --dry-run ]
 ```
+
+# Tags :
+
+```bash
+# tag locally 
+git tag <mytag>
+git push origin --tags
+```

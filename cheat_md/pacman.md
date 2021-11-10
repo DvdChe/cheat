@@ -4,7 +4,7 @@
 ```bash
 dpkg -L 
 # <=>
-pacman -Qo
+pacman -Ql
 
 
 dpkg -l 
