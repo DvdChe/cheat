@@ -1,24 +1,19 @@
-# Boot
+# Boot configuration ( for encrypted partition w/ bootctl )
 
-Info on the boot process and its configuration.
+## Bootctl configuration 
 
-First you must understand the non-Linux-specifics with minimal examples: <https://github.com/cirosantilli/x86-bare-metal-examples>
+```
+# /boot/loader/entries
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options cryptdevice=UUID=<BLKID OF DEVICE PARTITION>:rootdevice root=/dev/mapper/< VOLUME NAME > rw
 
-## boot directory
+```
 
-Usually located at `/boot/`.
+## Kernel arguments
 
-Contains the following Linux specific files:
-
-- `config-VERSION`: the kernel configuration options, generated at configuration before kernel compilation by `make menuconfig`
-- `abi-VERSION`: TODO what is? Looks like the kernel symbol table of exported symbols.
-
-### vmlinuz
-
-Compiled kernel compressed with gzip, thus the `Z`
-
-#### vmlinux
-
-#### bzimage
-
-<http://unix.stackexchange.com/questions/5518/what-is-the-difference-between-the-following-kernel-makefile-terms-vmlinux-vml>
+In `/etc/mkinitcpio.conf`, locate the `HOOKS` variable assignement and add `encrypt` and  `lvm2` arguments. It should looks like this : 
+```
+HOOKS=(base udev autodetect modconf block filesystems keyboard fsck encrypt lvm2)
+```
