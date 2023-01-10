@@ -2,41 +2,5 @@
 BYPASS=0
 cheat_dir=$(dirname "$(readlink -f "$0")")/cheat_md
 
-
-#Parse options :
-OPTS=$( getopt -o b -l bypass -- "$@" )
-if [ $? != 0 ]; then exit 1; fi
-eval set -- "$OPTS"
-while true ; do
-	case "$1" in
-		-b | --bypass)
-			BYPASS=1
-			shift 1 ;;
-		--)
-			shift;
-			break;;
-	esac
-done
-
-subject=$1
-
-if [[ $# -eq 0 ]]; then
-
-    echo "# Here is the cheats available :" |  glow -
-    find  "$cheat_dir" -type f -name "*.md" 
-
-	echo "*Tip :* You can also get cheat sheet on cheat.sh by bypassing markdown with *-b* or *--bypass* option."
-
-else
-
-	#if Cheat exists and bypass is unwanted :
-	if [[ -f "$cheat_dir"/"$subject".md && $BYPASS -eq 0 ]] ; then
-	    glow "$cheat_dir"/"$subject".md
-	else
-	#If not, lets curl in cheat.sh
-		curl cheat.sh/"$subject"
-	fi
-
-fi
-
+glow "$cheat_dir"/"$1".md
 
