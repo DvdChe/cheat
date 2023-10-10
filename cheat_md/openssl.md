@@ -2,10 +2,12 @@
 
 # Show certs informations :
 
+
+
 ## On standard https server :
 
 ```bash
-    openssl s_client -showcerts -connect <www.domain.com_or_ip>:443 -servername www.domain.com
+openssl s_client -showcerts -connect <www.domain.com_or_ip>:443 -servername www.domain.com
 ```
 ## Get Expiration date :
 
@@ -33,10 +35,20 @@ openssl s_client -connect www.xxx:443 -showcerts -servername xxx.com -debug | gr
 
 ## Inspect cert
 ```
-   openssl x509 -in certificate.crt -text -noout
+openssl x509 -in certificate.crt -text -noout
 ```
 
 ## Get public remote cert :
 ```bash 
 openssl s_client -connect google.com:443 –servername google.com:443 < NUL | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > public.crt
+```
+
+## Generate privkey
+```
+openssl genrsa -out priv.key 4096
+```
+
+## generate cert from csr 
+```
+openssl x509 -req -days 365 -in cert.csr -signkey priv.key -out cert.crt
 ```

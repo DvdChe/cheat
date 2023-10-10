@@ -3,10 +3,11 @@
 ## Meta commands :
 
 ```
-   show databases:  \l
-   use database:    \c database
-   show tables:     \dt
-   show privileges: \du
+   show databases:                     \l
+   use database:                       \c database
+   show tables:                        \dt
+   show privileges:                    \du
+   show privileges on specific table : \z <database>
 ```
 
 
@@ -35,4 +36,12 @@ SELECT pg_cancel_backend(procpid);
 ## kill idle query
 ```
 SELECT pg_terminate_backend(procpid);
+```
+
+## WAL bckup : 
+
+Force wal backup manually in spilo/patroni
+```
+su - postgres
+envdir "/run/etc/wal-e.d/env" /scripts/postgres_backup.sh "/home/postgres/pgdata/pgroot/data"
 ```
