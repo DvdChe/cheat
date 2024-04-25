@@ -29,6 +29,8 @@ kubectl proxy
 ## Run busybox :
 ```bash
 kubectl run -i --tty busybox --image=busybox --restart=Never -- sh
+
+kubectl run -i --tty --rm debug --image=alpine:3.16 --overrides='{ "apiVersion": "v1", "spec": { "nodeName": "mynode" } }' -- sh
 ```
 
 

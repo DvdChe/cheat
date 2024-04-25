@@ -31,18 +31,25 @@ Best command to see all processes on the system:
 Output fields include:
 
 -   `PID`: unique identifier for all process on system
-
+-   `STAT`: Process state code
 -   `TTY`: from which tty it was launched
-
 -   `TIME`: CPU time used for process, not real time
-
 -   `CMD`: command that launched th process without command line arguments
-
 -   `RSS`: (not POSIX) Resident Set Size. Memory used directly by the program in the RAM (so no swap) and that is not shared with other programs (shared memory like shared libraries). <http://stackoverflow.com/questions/7880784/what-is-rss-and-vsz-in-linux-memory-management>
-
 -   `VSZ`: (not POSIX) Virtual Memory Size: the entire address space that is visible by the program, although not necessarily loaded in memory. Includes swap and parts of shared libraries not loaded in RAM.
-
 -   `%MEM`: (not POSIX) percentage of `RSS` out of the total memory
+
+Process state codes : 
+
+-   `D`    uninterruptible sleep (usually IO)
+-   `I`    Idle kernel thread
+-   `R`    running or runnable (on run queue)
+-   `S`    interruptible sleep (waiting for an event to complete)
+-   `T`    stopped by job control signal
+-   `t`    stopped by debugger during the tracing
+-   `W`    paging (not valid since the 2.6.xx kernel)
+-   `X`    dead (should never be seen)
+-   `Z`    defunct ("zombie") process, terminated but not reaped by its parent
 
 See processes running on current tty:
 
