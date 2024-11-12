@@ -8,6 +8,7 @@
 ```bash
 curl -XPOST \
    --header "PRIVATE-TOKEN: $GITLAB_TOKEN" \
+   --data "name=<name>" \
    "https://<gitlab-url>/api/v4/service_accounts" | jq
 ```
 
@@ -25,8 +26,8 @@ curl -XPOST \
 
 ### List tokens information of a specific user 
 ```bash
-   curl -XGET \
-   --header "PRIVATE-TOKEN: $GITLAB_TOKEN" \
+curl -XGET \
+    --header "PRIVATE-TOKEN: $GITLAB_TOKEN" \
    "https://<gitlab-url>/api/v4/personal_access_tokens?user_id=<ID>"
 ```
 
