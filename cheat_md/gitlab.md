@@ -35,3 +35,11 @@ curl -XGET \
 ```bash
  curl -XGET -H "PRIVATE-TOKEN: <token>" https://<gitlab-url>/api/v4/user | jq
 ```
+
+### Renew service account 
+
+```bash
+curl --request POST \
+  --header "PRIVATE-TOKEN: $GITLAB_TOKEN" \
+  --url "https://<gitlab-url>/api/v4/personal_access_tokens/<personal_access_token_id>/rotate"
+```

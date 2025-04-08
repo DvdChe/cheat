@@ -54,3 +54,80 @@ git push origin -u <new_name>
 git tag <mytag>
 git push origin --tags
 ```
+
+
+# Advanced tip and tricks
+
+```
+git contig --global alias.staash 'stash --all'
+
+git config --global alias.bb !better-branch.sh
+
+```
+
+
+## Git confing
+```
+[includeIf]
+```
+
+## oldies but goodies
+```
+git blame -L 15,26:/path/of/file  #blame range of file
+# works with log, show
+
+git blame -w -C -C
+# Ignore whitespaces
+# detect lines moved or copied in the same commit 
+# x2 or the commit that created te file
+# x3 or or any commit at all 
+
+git log -S <regex> file -p
+
+
+git diff # by line
+
+git diff --word-diff
+
+
+git config --global rerere.enabled true
+
+# REuse REcorded REsolution. when rebase and fix confllict once ! 
+
+```
+
+## New stuff
+```
+git branch --column 
+# or
+git config --global column.ui auto
+
+
+git config --global branch.sort -commiterdate
+
+git push --force-with-lease
+# Will push only if local last ref == remote last ref 
+
+#sign commit with ssh
+git config gpg.format ssh 
+git config user.signingkey = ~/.ssh/key.pub
+
+git push --signed
+
+git maintenance start # creates job that will fetch/pull incrementally. Usefull for big repo
+
+```
+
+
+## Big repo/monorepo stuff
+
+```
+# partial cloning
+git clone --filter=tree:0
+
+# sparse-checkout
+git sparse-checkout <folder1> <folder2>
+
+```
+
+

@@ -1,6 +1,7 @@
 # etcdctl
-# CLI interface for interacting with etcd, a highly-available key-value pair store.
-# More information: <https://etcd.io/docs/latest/dev-guide/interacting_v3/>.
+## CLI interface for interacting with etcd, a highly-available key-value pair store.
+
+More information: <https://etcd.io/docs/latest/dev-guide/interacting_v3/>.
 
 # Display the value associated with a specified key:
 ```
@@ -41,4 +42,23 @@ etcdctl cluster-health
 etcdctl mk
 etcdctl mkdir
 etcdctl set
+```
+# Kube-specific commands
+
+```
+ETCDCTL_API=3 etcdctl \
+--cert=/etc/kubernetes/pki/etcd/server.crt \
+--key=/etc/kubernetes/pki/etcd/server.key \
+--cacert=/etc/kubernetes/pki/etcd/ca.crt \
+member list --write-out table
+```
+
+Check endpoint then, 
+
+```
+ETCDCTL_API=3 etcdctl --endpoints <endpoint1>:2379,<endpoint2>:2379,... \
+--cert=/etc/kubernetes/pki/etcd/server.crt \
+--key=/etc/kubernetes/pki/etcd/server.key \
+--cacert=/etc/kubernetes/pki/etcd/ca.crt \
+endpoint status --write-out table
 ```
