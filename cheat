@@ -2,5 +2,39 @@
 BYPASS=0
 cheat_dir=$(dirname "$(readlink -f "$0")")/cheat_md
 
-glow "$cheat_dir"/"$1".md
+cheat_name="$1"
+cheat_path="$cheat_dir/$cheat_name.md"
+
+if [[ -z "$cheat_name" || ! -f "$cheat_path" ]]; then
+  if [[ -n "$cheat_name" ]]; then
+    matches=()
+    shopt -s nocaseglob
+    for file in "$cheat_dir"/*"$cheat_name"*.md; do
+      [[ -f "$file" ]] || continue
+      matches+=("$(basename "$file" .md)")
+    done
+    shopt -u nocaseglob
+
+    if (( ${#matches[@]} > 0 )); then
+      echo "Closest cheatsheets:"
+      for name in "${matches[@]}"; do
+        echo " - $name"
+      done
+      exit 1
+    fi
+  fi
+
+  echo "Available cheatsheets:"
+  all_names=()
+  for file in "$cheat_dir"/*.md; do
+    [[ -f "$file" ]] || continue
+    all_names+=("$(basename "$file" .md)")
+  done
+  if (( ${#all_names[@]} > 0 )); then
+    printf "%s\n" "${all_names[@]}" | column
+  fi
+  exit 1
+fi
+
+glow "$cheat_path"
 
