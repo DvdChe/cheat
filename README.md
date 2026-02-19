@@ -9,8 +9,6 @@ E/G :
 cheat mysql
 ```
 
-**Note :** Tons of md are from https://github.com/cirosantilli/linux-kernel-module-cheat 
-
 ## New Feature : cheat.sh
 
 If you have no markdown but you want a cheat anyway, the script will automatically check on cheat.sh
