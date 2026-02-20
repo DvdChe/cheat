@@ -11,3 +11,8 @@ helm install repo/chart --dry-run --debug --generate-name
 ```
 helm template template.yaml -f values.yaml 
 ```
+
+## Get manifests from deployed chart 
+```
+helm get manifests <release>
+```
